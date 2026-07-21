@@ -1,14 +1,15 @@
 project: IntroAI
-context_version: 3
+context_version: 4
 updated: 2026-07-21
 
 # IntroAI
 
-Статус: README оформлен, добавлена минимальная публичная GitHub Pages-страница проекта.
-Аудитория: начинающие пользователи без IT-бэкграунда, которым нужен простой вводный материал по ИИ.
+Статус: опубликован полноценный сайт на GitHub Pages.
+Аудитория: начинающие пользователи без IT-бэкграунда.
 
-Текущие артефакты:
-- README.md: основной подробный гайд по ИИ и Cursor AI
-- index.html: минимальная публичная landing page для GitHub Pages
+Сайт: https://puholet-sketch.github.io/IntroAI/
+Стиль: тёплый лендинг «Путешествие в мир ИИ» — тёмный hero, светлые карточки, SVG-схемы.
 
-Следующий шаг: дождаться завершения деплоя GitHub Pages и использовать публичную ссылку github.io.
+Артефакты: index.html, assets/css/style.css, assets/js/main.js, README.md
+
+Следующий шаг: по запросу — FAQ, дополнительные примеры.
