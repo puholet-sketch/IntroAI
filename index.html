@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IntroAI</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #4b5563;
+      --accent: #2563eb;
+      --border: #dbe3f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #eef4ff 0%, var(--bg) 100%);
+      color: var(--text);
+    }
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 48px 20px 64px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.08);
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+    }
+    p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .lead {
+      font-size: 1.15rem;
+      margin-bottom: 24px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 24px 0 12px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid var(--accent);
+    }
+    .btn.primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn.secondary {
+      color: var(--accent);
+      background: #fff;
+    }
+    ul {
+      padding-left: 20px;
+      line-height: 1.8;
+      color: var(--text);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .tile {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      background: #fbfdff;
+    }
+    .tile h2 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+    }
+    footer {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <h1>Путешествие в мир искусственного интеллекта</h1>
+      <p class="lead">
+        IntroAI - это простой вводный гид по искусственному интеллекту для тех, кто хочет
+        понять, что такое ИИ, нейросети и как использовать их в обычной жизни без технического бэкграунда.
+      </p>
+      <p>
+        Проект объясняет базовые идеи простым языком: чем отличаются ИИ, машинное обучение и нейросети,
+        как нейросети учатся на примерах, где ИИ помогает в повседневных задачах и как начать практику с Cursor AI.
+      </p>
+
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/puholet-sketch/IntroAI/blob/main/README.md">Открыть полный гайд</a>
+        <a class="btn secondary" href="https://github.com/puholet-sketch/IntroAI">Репозиторий на GitHub</a>
+      </div>
+
+      <div class="grid">
+        <article class="tile">
+          <h2>Что внутри</h2>
+          <ul>
+            <li>Объяснение ИИ простыми словами</li>
+            <li>Разница между AI, ML и нейросетями</li>
+            <li>Практические бытовые примеры</li>
+          </ul>
+        </article>
+        <article class="tile">
+          <h2>Для кого</h2>
+          <ul>
+            <li>Для начинающих без опыта в IT</li>
+            <li>Для тех, кто хочет разобраться без сложной математики</li>
+            <li>Для первого знакомства с Cursor AI</li>
+          </ul>
+        </article>
+        <article class="tile">
+          <h2>Дальше</h2>
+          <ul>
+            <li>Прочитать полный README</li>
+            <li>Попробовать ChatGPT или YandexGPT</li>
+            <li>Сделать первый маленький проект в Cursor</li>
+          </ul>
+        </article>
+      </div>
+
+      <footer>
+        Сайт опубликован через GitHub Pages из ветки <code>main</code>.
+      </footer>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,22 +1,22 @@
 {
-  "context_version": 2,
-  "timestamp": "2026-07-21T12:10:00+03:00",
+  "context_version": 3,
+  "timestamp": "2026-07-21T12:20:00+03:00",
   "context_hash": null,
   "active_files": [
     "README.md",
+    "index.html",
     ".ai/CONTEXT.md",
     ".ai/INDEX.md",
     ".ai/state.json"
   ],
   "active_file_hashes": {},
   "decisions": [
-    "Стилистика: дружелюбный лендинг без инфантильности, якорное меню, Mermaid-диаграммы inline.",
-    "Диаграммы: 3 штуки (иерархия ИИ, цикл обучения, путь новичка к Cursor).",
-    "Оплата Cursor через plati.ru подана как практический вариант, не реклама.",
-    "Папка assets/ не создана — пока не нужна, Mermaid рендерится GitHub нативно."
+    "Added a minimal index.html to publish the repository through GitHub Pages from main/root.",
+    "Kept README.md as the full guide and used the page as a clean public entry point.",
+    "Used GitHub Pages branch source instead of extra build tooling for the simplest setup."
   ],
   "blockers": [],
   "last_error": null,
   "retry_count": 0,
-  "next_action": "Ревью и возможные улучшения: добавить PNG-схемы в assets/ для клиентов без Mermaid, расширить примеры."
+  "next_action": "Verify Pages deployment and share the public github.io URL."
 }
