@@ -1,15 +1,13 @@
 project: IntroAI
-context_version: 4
+context_version: 5
 updated: 2026-07-21
 
 # IntroAI
 
-Статус: опубликован полноценный сайт на GitHub Pages.
-Аудитория: начинающие пользователи без IT-бэкграунда.
-
+Статус: сайт полностью пересобран — editorial learning guide.
 Сайт: https://puholet-sketch.github.io/IntroAI/
-Стиль: тёплый лендинг «Путешествие в мир ИИ» — тёмный hero, светлые карточки, SVG-схемы.
 
-Артефакты: index.html, assets/css/style.css, assets/js/main.js, README.md
+Стиль: бумага + чернила + красный акцент, Fraunces/Manrope, без карточного спама и фиолетовых градиентов.
+Контент: 8 секций progressive disclosure для нетехнического взрослого читателя.
 
-Следующий шаг: по запросу — FAQ, дополнительные примеры.
+Следующий шаг: отзыв пользователя / правки тона.
