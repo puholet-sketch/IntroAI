@@ -1,447 +1,509 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Понятное введение в искусственный интеллект и нейросети для начинающих. Без программирования и без лишнего жаргона.">
-  <title>IntroAI — понятное введение в искусственный интеллект</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Понятное введение в искусственный интеллект и нейросети для начинающих. Практика, рабочие сервисы из РФ и оплата Cursor через plati.ru." />
+  <title>IntroAI · Введение в искусственный интеллект</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <header class="topbar" id="topbar">
-    <div class="wrap topbar-inner">
-      <a class="brand" href="#top">Intro<span>AI</span></a>
-      <button class="toc-toggle" type="button" aria-expanded="false" aria-controls="toc" id="tocToggle">
-        Содержание
-      </button>
-      <nav class="toc" id="toc" aria-label="Содержание">
-        <a href="#idea">Идея за 1 минуту</a>
-        <a href="#map">Карта понятий</a>
-        <a href="#learn">Как учится нейросеть</a>
-        <a href="#kinds">Какие бывают</a>
-        <a href="#start">С чего начать</a>
-        <a href="#safety">Правила безопасности</a>
-        <a href="#cursor">Путь к Cursor</a>
-        <a href="#plan">План на 4 недели</a>
+  <a class="skip" href="#main">К содержанию</a>
+
+  <header class="top">
+    <div class="top__inner">
+      <a class="brand" href="#top" aria-label="IntroAI — на главную">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__text">Intro<span>AI</span></span>
+      </a>
+      <nav class="nav" aria-label="Разделы">
+        <a href="#idea">Идея</a>
+        <a href="#map">Понятия</a>
+        <a href="#practice">Практика</a>
+        <a href="#resources">Сервисы</a>
+        <a href="#pay" class="nav__cta">Оплата</a>
+        <a href="#plan">План</a>
       </nav>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Меню">
+        <span></span><span></span>
+      </button>
     </div>
+    <nav id="mobile-nav" class="nav-mobile" hidden>
+      <a href="#idea">Идея</a>
+      <a href="#map">Понятия</a>
+      <a href="#learn">Как учится</a>
+      <a href="#kinds">Виды</a>
+      <a href="#practice">Практика</a>
+      <a href="#safety">Безопасность</a>
+      <a href="#resources">Сервисы</a>
+      <a href="#pay">Оплата через plati</a>
+      <a href="#cursor">Cursor</a>
+      <a href="#plan">План на 4 недели</a>
+      <a href="#faq">FAQ</a>
+    </nav>
   </header>
 
-  <section class="hero" id="top">
-    <div class="hero-bg" aria-hidden="true">
-      <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" role="presentation">
-        <defs>
-          <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#f7f5f1"/>
-            <stop offset="55%" stop-color="#efe8df"/>
-            <stop offset="100%" stop-color="#e7ddd2"/>
-          </linearGradient>
-          <radialGradient id="glow" cx="70%" cy="35%" r="45%">
-            <stop offset="0%" stop-color="#d62828" stop-opacity="0.18"/>
-            <stop offset="100%" stop-color="#d62828" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <rect width="1440" height="900" fill="url(#wash)"/>
-        <rect width="1440" height="900" fill="url(#glow)"/>
-        <!-- abstract network field: not decorative noise, readable structure -->
-        <g fill="none" stroke="#141414" stroke-opacity="0.12" stroke-width="1.2">
-          <path d="M180 620 C320 480, 420 520, 560 390 S820 220, 980 280 S1260 420, 1360 360"/>
-          <path d="M120 300 C280 340, 360 220, 520 260 S780 420, 940 360 S1180 180, 1340 240"/>
-          <path d="M80 480 C240 560, 400 430, 580 500 S860 620, 1040 540 S1260 460, 1400 520"/>
-        </g>
-        <g fill="#141414" fill-opacity="0.45">
-          <circle cx="180" cy="620" r="5"/><circle cx="560" cy="390" r="5"/>
-          <circle cx="980" cy="280" r="5"/><circle cx="1360" cy="360" r="5"/>
-          <circle cx="120" cy="300" r="4"/><circle cx="520" cy="260" r="4"/>
-          <circle cx="940" cy="360" r="4"/><circle cx="1340" cy="240" r="4"/>
-          <circle cx="580" cy="500" r="4"/><circle cx="1040" cy="540" r="4"/>
-        </g>
-        <g fill="#d62828" fill-opacity="0.7">
-          <circle cx="760" cy="340" r="7"/>
-        </g>
-      </svg>
-    </div>
-
-    <div class="wrap hero-copy">
-      <p class="hero-brand">Intro<em>AI</em></p>
-      <h1>Искусственный интеллект без страха и без сложной математики</h1>
-      <p class="hero-lead">
-        Короткий гид для взрослого человека, который далёк от технологий:
-        что это такое, как работают нейросети и с чего начать на практике.
-      </p>
-      <a class="btn" href="#idea">
-        Начать чтение
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-  </section>
-
-  <main>
-    <section class="section" id="idea">
-      <div class="wrap reveal">
-        <div class="section-head">
-          <span class="kicker">01 · Идея за 1 минуту</span>
-          <h2>ИИ — это не робот из фильма</h2>
-          <p>Это программа, которая умеет находить закономерности в огромном количестве примеров.</p>
-        </div>
-
-        <div class="prose">
-          <p>
-            <strong>Искусственный интеллект</strong> — способ заставить компьютер решать задачи,
-            которые раньше требовали человеческой смекалки: понять текст, узнать лицо на фото,
-            предложить маршрут, перевести фразу, набросать письмо.
-          </p>
-          <p>
-            Он не «думает» как человек и не обладает сознанием.
-            Он предсказывает наиболее вероятный полезный ответ на основе того, на чём его обучили.
-          </p>
-        </div>
-
-        <blockquote class="analogy">
-          <p>
-            Представьте не гения, а очень внимательного библиотекаря,
-            который прочитал миллионы книг и быстро находит похожие ответы.
-            Иногда ошибается — но часто экономит часы работы.
-          </p>
-          <cite>Главная мысль: ИИ — инструмент. Решения всегда остаются за вами.</cite>
-        </blockquote>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__mesh"></div>
+        <svg class="hero__visual" viewBox="0 0 960 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#C00000" stop-opacity="0.9"/>
+              <stop offset="100%" stop-color="#1A1A1A" stop-opacity="0.2"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FB5A5A" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#C00000" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <rect x="80" y="60" width="720" height="520" rx="4" stroke="url(#g1)" stroke-width="1.5" opacity="0.7"/>
+          <rect x="140" y="120" width="600" height="400" rx="2" stroke="url(#g2)" stroke-width="1"/>
+          <path class="hero__path" d="M180 420 L300 300 L420 360 L560 210 L680 290 L800 170" stroke="#C00000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="300" cy="300" r="7" fill="#C00000"/>
+          <circle cx="560" cy="210" r="7" fill="#1A1A1A"/>
+          <circle cx="800" cy="170" r="9" fill="#C00000"/>
+          <text x="170" y="470" fill="#666666" font-family="Unbounded, sans-serif" font-size="14">вопрос</text>
+          <text x="430" y="400" fill="#666666" font-family="Unbounded, sans-serif" font-size="14">нейросеть</text>
+          <text x="720" y="150" fill="#C00000" font-family="Unbounded, sans-serif" font-size="16" font-weight="600">ответ</text>
+        </svg>
       </div>
+      <div class="hero__content">
+        <p class="brand-hero">IntroAI</p>
+        <h1>Искусственный интеллект без страха и без сложной математики</h1>
+        <p class="hero__lead">Короткий гид для взрослого человека, далёкого от технологий: что это такое, как работают нейросети, чем пользоваться из России и как оплатить Cursor через plati.ru.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#idea">Начать чтение</a>
+          <a class="btn btn--ghost" href="#pay">Как оплатить Cursor</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="strip" aria-label="Для кого">
+      <p>Для тех, кто слышал про <strong>ChatGPT</strong> и «нейросети», но пока не понимает, с чего начать. Без программирования. С рабочими ссылками и понятной инструкцией по оплате зарубежных сервисов.</p>
+    </section>
+
+    <section class="section" id="idea">
+      <div class="section__head">
+        <span class="kicker">01 · Идея</span>
+        <h2>ИИ — это не робот из фильма</h2>
+        <p>Это программа, которая находит закономерности в огромном количестве примеров и предлагает наиболее правдоподобный ответ.</p>
+      </div>
+      <div class="prose">
+        <p><strong>Искусственный интеллект</strong> помогает компьютеру решать задачи, которые раньше требовали человеческой смекалки: понять текст, узнать лицо на фото, перевести фразу, набросать письмо, предложить маршрут.</p>
+        <p>Он не обладает сознанием и не «думает» как человек. Он предсказывает полезный ответ на основе того, на чём его обучили. Поэтому ИИ бывает очень полезен — и поэтому же иногда уверенно ошибается.</p>
+      </div>
+      <blockquote class="analogy">
+        <p>Представьте очень внимательного библиотекаря, который прочитал миллионы книг и быстро находит похожие ответы. Иногда путает — но часто экономит часы работы.</p>
+        <cite>Главная мысль: ИИ — инструмент. Решение всегда остаётся за вами.</cite>
+      </blockquote>
     </section>
 
     <section class="section" id="map">
-      <div class="wrap reveal">
-        <div class="section-head">
-          <span class="kicker">02 · Карта понятий</span>
-          <h2>Три слова, которые все путают</h2>
-          <p>Запомните эту лестницу — и половина путаницы исчезнет.</p>
-        </div>
-
-        <div class="ladder" aria-label="Иерархия понятий">
-          <article class="ladder-step">
-            <div class="ladder-num">1</div>
-            <div>
-              <h3>Искусственный интеллект</h3>
-              <p>Большой зонтик: любая «умная» программа. Пример — шахматная программа по жёстким правилам.</p>
-            </div>
-          </article>
-          <article class="ladder-step">
-            <div class="ladder-num">2</div>
-            <div>
-              <h3>Машинное обучение</h3>
-              <p>Программа учится на примерах, а не только по заранее прописанным инструкциям. Пример — рекомендации фильмов.</p>
-            </div>
-          </article>
-          <article class="ladder-step">
-            <div class="ladder-num">3</div>
-            <div>
-              <h3>Нейросеть</h3>
-              <p>Один из способов машинного обучения: много простых «узлов», которые вместе распознают сложные вещи. Пример — ChatGPT.</p>
-            </div>
-          </article>
-        </div>
-
-        <div class="prose">
-          <p>
-            <strong>Коротко:</strong> все нейросети — это машинное обучение.
-            Всё машинное обучение — это ИИ. Но не каждый ИИ обязательно нейросеть.
-          </p>
-        </div>
+      <div class="section__head">
+        <span class="kicker">02 · Карта понятий</span>
+        <h2>Три слова, которые все путают</h2>
+        <p>Запомните эту лестницу — и половина путаницы исчезнет.</p>
       </div>
+      <ol class="timeline">
+        <li class="timeline__item" data-step="01">
+          <h3>Искусственный интеллект</h3>
+          <p>Большой зонтик: любая «умная» программа. Пример — шахматная программа по жёстким правилам.</p>
+        </li>
+        <li class="timeline__item" data-step="02">
+          <h3>Машинное обучение</h3>
+          <p>Программа учится на примерах, а не только по заранее прописанным инструкциям. Пример — рекомендации фильмов.</p>
+        </li>
+        <li class="timeline__item" data-step="03">
+          <h3>Нейросеть</h3>
+          <p>Один из способов машинного обучения: много простых «узлов», которые вместе распознают сложные вещи. Пример — ChatGPT.</p>
+        </li>
+      </ol>
+      <p class="caption"><strong>Коротко:</strong> все нейросети — это машинное обучение. Всё машинное обучение — это ИИ. Но не каждый ИИ обязательно нейросеть.</p>
     </section>
 
     <section class="section" id="learn">
-      <div class="wrap reveal">
-        <div class="section-head">
-          <span class="kicker">03 · Как это работает</span>
-          <h2>Нейросеть учится как ученик — только быстрее</h2>
-          <p>Без формул: вход → попытка → проверка → поправка → снова попытка.</p>
-        </div>
-
-        <div class="prose">
-          <p>
-            Чтобы научить сеть отличать кошку от собаки, ей показывают тысячи фотографий
-            и каждый раз говорят правильный ответ. Сначала она ошибается.
-            После каждой ошибки слегка «подкручивает» внутренние настройки.
-            Через миллионы таких шагов начинает попадать чаще.
-          </p>
-        </div>
-
-        <figure class="diagram">
-          <div class="flow" role="list">
-            <div class="flow-item" role="listitem">
-              <strong>Вход</strong>
-              <span>текст, фото, голос</span>
-            </div>
-            <div class="flow-item" role="listitem">
-              <strong>Обработка</strong>
-              <span>сеть ищет закономерности</span>
-            </div>
-            <div class="flow-item" role="listitem">
-              <strong>Ответ</strong>
-              <span>перевод, совет, картинка</span>
-            </div>
-            <div class="flow-item" role="listitem">
-              <strong>Обучение</strong>
-              <span>ошибка → корректировка</span>
-            </div>
-          </div>
-          <figcaption>Так сеть «учится»: не заучивает ответы наизусть, а подстраивает параметры под примеры.</figcaption>
-        </figure>
-
-        <div class="prose">
-          <p>
-            Поэтому ИИ бывает очень полезен — и поэтому же иногда уверенно несёт чушь.
-            Он выбирает <em>правдоподобный</em> ответ, а не всегда истинный.
-          </p>
-        </div>
+      <div class="section__head">
+        <span class="kicker">03 · Как это работает</span>
+        <h2>Нейросеть учится как ученик — только быстрее</h2>
+        <p>Без формул: вход → попытка → проверка → поправка → снова попытка.</p>
       </div>
+      <div class="prose">
+        <p>Чтобы научить сеть отличать кошку от собаки, ей показывают тысячи фотографий и каждый раз говорят правильный ответ. Сначала она ошибается. После каждой ошибки слегка «подкручивает» внутренние настройки. Через миллионы таких шагов начинает попадать чаще.</p>
+      </div>
+      <div class="flow" aria-label="Цикл обучения">
+        <div class="flow__item"><strong>Вход</strong><span>текст, фото, голос</span></div>
+        <div class="flow__item"><strong>Обработка</strong><span>сеть ищет закономерности</span></div>
+        <div class="flow__item"><strong>Ответ</strong><span>перевод, совет, картинка</span></div>
+        <div class="flow__item"><strong>Обучение</strong><span>ошибка → корректировка</span></div>
+      </div>
+      <p class="caption">Сеть выбирает правдоподобный ответ, а не всегда истинный. Поэтому важное всегда перепроверяют.</p>
     </section>
 
     <section class="section" id="kinds">
-      <div class="wrap reveal">
-        <div class="section-head">
-          <span class="kicker">04 · Какие бывают</span>
-          <h2>Разные нейросети — разные профессии</h2>
-          <p>Не нужно знать все. Достаточно понимать, к кому за чем идти.</p>
-        </div>
-
-        <div class="type-list">
-          <div class="type-row">
-            <h3>Текстовые</h3>
-            <p>Пишут, объясняют, переводят, составляют планы и письма.</p>
-            <p class="examples">ChatGPT · YandexGPT · Claude · GigaChat</p>
-          </div>
-          <div class="type-row">
-            <h3>Картинки</h3>
-            <p>Рисуют изображения по описанию словами.</p>
-            <p class="examples">Kandinsky · DALL·E · Midjourney</p>
-          </div>
-          <div class="type-row">
-            <h3>Голос и речь</h3>
-            <p>Понимают сказанное и переводят в текст или наоборот.</p>
-            <p class="examples">Алиса · Siri · ElevenLabs</p>
-          </div>
-          <div class="type-row">
-            <h3>Зрение</h3>
-            <p>Узнают объекты, текст и лица на фото и видео.</p>
-            <p class="examples">Google Lens · Face ID</p>
-          </div>
-        </div>
+      <div class="section__head">
+        <span class="kicker">04 · Какие бывают</span>
+        <h2>Разные нейросети — разные профессии</h2>
+        <p>Не нужно знать все. Достаточно понимать, к кому за чем идти.</p>
       </div>
+      <ul class="type-list">
+        <li>
+          <h3>Текстовые</h3>
+          <p>Пишут, объясняют, переводят, составляют планы и письма.</p>
+          <p class="examples">ChatGPT · YandexGPT · GigaChat · Claude · DeepSeek</p>
+        </li>
+        <li>
+          <h3>Картинки</h3>
+          <p>Рисуют изображения по описанию словами.</p>
+          <p class="examples">Kandinsky · Shedevrum · DALL·E · Midjourney</p>
+        </li>
+        <li>
+          <h3>Голос и речь</h3>
+          <p>Понимают сказанное и переводят в текст или наоборот.</p>
+          <p class="examples">Алиса · SaluteSpeech · Whisper</p>
+        </li>
+        <li>
+          <h3>Поиск с ИИ</h3>
+          <p>Ищут в интернете и сразу собирают понятный ответ со ссылками.</p>
+          <p class="examples">Perplexity · Яндекс с Алисой · Google AI Mode</p>
+        </li>
+      </ul>
     </section>
 
-    <section class="section" id="start">
-      <div class="wrap reveal">
-        <div class="section-head">
-          <span class="kicker">05 · Практика</span>
-          <h2>С чего начать уже сегодня</h2>
-          <p>Откройте текстовую нейросеть в браузере и говорите с ней обычным языком.</p>
-        </div>
-
-        <ul class="use-list">
-          <li>
-            <b>Письма</b>
-            <span>«Напиши вежливое письмо поставщику: перенести поставку на 10 дней»</span>
-          </li>
-          <li>
-            <b>Объяснения</b>
-            <span>«Объясни этот договор простыми словами, без юридического жаргона»</span>
-          </li>
-          <li>
-            <b>Планы</b>
-            <span>«Составь маршрут на 3 дня в Казани с детьми, бюджет 30 тысяч»</span>
-          </li>
-          <li>
-            <b>Учёба</b>
-            <span>«Объясни, что такое инфляция, как будто мне 12 лет»</span>
-          </li>
-          <li>
-            <b>Excel</b>
-            <span>«Какая формула суммирует значения больше 100 в столбце A?»</span>
-          </li>
-        </ul>
-
-        <div class="prompts">
-          <div class="prompt">
-            <span class="label">Плохой запрос</span>
-            <p>«Напиши текст»</p>
-          </div>
-          <div class="prompt">
-            <span class="label">Хороший запрос</span>
-            <p>«Напиши короткое деловое письмо директору магазина: хочу вернуть товар без чека, тон спокойный, 5–7 предложений»</p>
-          </div>
-        </div>
-
-        <blockquote class="analogy">
-          <p>Чем точнее задача, тем полезнее ответ. ИИ — не телепат, а исполнитель по инструкции.</p>
-        </blockquote>
+    <section class="section" id="practice">
+      <div class="section__head">
+        <span class="kicker">05 · Практика</span>
+        <h2>С чего начать уже сегодня</h2>
+        <p>Откройте текстовую нейросеть в браузере и говорите с ней обычным языком. Чем точнее задача — тем полезнее ответ.</p>
       </div>
+      <ol class="timeline">
+        <li class="timeline__item" data-step="01">
+          <h3>Письма и документы</h3>
+          <p>«Напиши вежливое письмо поставщику: перенести поставку на 10 дней, тон спокойный, 5–7 предложений».</p>
+        </li>
+        <li class="timeline__item" data-step="02">
+          <h3>Объяснения</h3>
+          <p>«Объясни этот договор простыми словами, без юридического жаргона. Что важно проверить перед подписью?»</p>
+        </li>
+        <li class="timeline__item" data-step="03">
+          <h3>Планы</h3>
+          <p>«Составь маршрут на 3 дня в Казани с детьми, бюджет 30 тысяч, без ночных переездов».</p>
+        </li>
+        <li class="timeline__item" data-step="04">
+          <h3>Таблицы и Excel</h3>
+          <p>«Какая формула суммирует значения больше 100 в столбце A? Покажи пример».</p>
+        </li>
+      </ol>
+      <ul class="prompt-list">
+        <li>
+          <span class="label">Плохой запрос</span>
+          <p>«Напиши текст»</p>
+        </li>
+        <li>
+          <span class="label">Хороший запрос</span>
+          <p>«Напиши короткое деловое письмо директору магазина: хочу вернуть товар без чека, тон спокойный, 5–7 предложений»</p>
+        </li>
+      </ul>
     </section>
 
     <section class="section" id="safety">
-      <div class="wrap reveal">
-        <div class="section-head">
-          <span class="kicker">06 · Безопасность</span>
-          <h2>Четыре правила, которых достаточно</h2>
-          <p>Их хватит, чтобы пользоваться спокойно и не навредить себе.</p>
+      <div class="section__head">
+        <span class="kicker">06 · Безопасность</span>
+        <h2>Четыре правила, которых достаточно</h2>
+        <p>Их хватит, чтобы пользоваться спокойно и не навредить себе.</p>
+      </div>
+      <div class="rules">
+        <article class="rule">
+          <div class="rule__num">01</div>
+          <div>
+            <h3>Перепроверяйте важное</h3>
+            <p>Медицина, деньги, законы, даты — не верьте одному ответу. Сверяйте с надёжным источником.</p>
+          </div>
+        </article>
+        <article class="rule">
+          <div class="rule__num">02</div>
+          <div>
+            <h3>Не отдавайте секреты</h3>
+            <p>Паспорт, пароли, карты, коды из SMS — в чат с ИИ это не пишут.</p>
+          </div>
+        </article>
+        <article class="rule">
+          <div class="rule__num">03</div>
+          <div>
+            <h3>Вы — начальник</h3>
+            <p>ИИ предлагает. Решение принимаете вы. Особенно если речь о людях и обязательствах.</p>
+          </div>
+        </article>
+        <article class="rule">
+          <div class="rule__num">04</div>
+          <div>
+            <h3>Начинайте с бесплатного</h3>
+            <p>Для знакомства платить не нужно. Сначала привыкните, потом решайте про подписки.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="resources">
+      <div class="section__head">
+        <span class="kicker">07 · Рабочие сервисы</span>
+        <h2>Что реально открыть и попробовать</h2>
+        <p>Сначала российские сервисы — они обычно работают без VPN. Зарубежные тоже полезны, но доступ и оплата могут отличаться.</p>
+      </div>
+      <ul class="resource-list">
+        <li>
+          <div>
+            <h3>YandexGPT / Алиса AI</h3>
+            <p>Хороший старт из РФ: вопросы, тексты, объяснения на русском. Есть в браузере и в приложении Яндекса.</p>
+          </div>
+          <a class="btn btn--ghost" href="https://alice.yandex.ru/" target="_blank" rel="noopener">Открыть</a>
+        </li>
+        <li>
+          <div>
+            <h3>GigaChat</h3>
+            <p>Текстовый ИИ от Сбера. Удобен для писем, планов, разбора текстов и простых рабочих задач.</p>
+          </div>
+          <a class="btn btn--ghost" href="https://giga.chat/" target="_blank" rel="noopener">Открыть</a>
+        </li>
+        <li>
+          <div>
+            <h3>Kandinsky / FusionBrain</h3>
+            <p>Генерация картинок по описанию. Работает из России, удобно попробовать «нарисуй…».</p>
+          </div>
+          <a class="btn btn--ghost" href="https://fusionbrain.ai/" target="_blank" rel="noopener">Открыть</a>
+        </li>
+        <li>
+          <div>
+            <h3>Shedevrum</h3>
+            <p>Ещё один простой способ рисовать картинки нейросетью, без сложной настройки.</p>
+          </div>
+          <a class="btn btn--ghost" href="https://shedevrum.ai/" target="_blank" rel="noopener">Открыть</a>
+        </li>
+        <li>
+          <div>
+            <h3>ChatGPT</h3>
+            <p>Сильный универсальный помощник. Бесплатного режима часто хватает для старта; платную подписку из РФ обычно берут через посредников.</p>
+          </div>
+          <a class="btn btn--ghost" href="https://chatgpt.com/" target="_blank" rel="noopener">Открыть</a>
+        </li>
+        <li>
+          <div>
+            <h3>Claude</h3>
+            <p>Хорош для длинных текстов, аккуратных объяснений и работы с документами.</p>
+          </div>
+          <a class="btn btn--ghost" href="https://claude.ai/" target="_blank" rel="noopener">Открыть</a>
+        </li>
+        <li>
+          <div>
+            <h3>DeepSeek</h3>
+            <p>Сильный и относительно доступный текстовый ИИ. Часто удобен для разбора задач и кода.</p>
+          </div>
+          <a class="btn btn--ghost" href="https://chat.deepseek.com/" target="_blank" rel="noopener">Открыть</a>
+        </li>
+        <li>
+          <div>
+            <h3>Perplexity</h3>
+            <p>ИИ-поиск: отвечает и сразу даёт источники. Полезно, когда нужно не «сочинить», а найти.</p>
+          </div>
+          <a class="btn btn--ghost" href="https://www.perplexity.ai/" target="_blank" rel="noopener">Открыть</a>
+        </li>
+        <li>
+          <div>
+            <h3>Cursor</h3>
+            <p>Редактор с ИИ внутри. Когда захотите не только спрашивать, а создавать: страницу, таблицу, бота, скрипт.</p>
+          </div>
+          <a class="btn btn--primary" href="https://cursor.com/" target="_blank" rel="noopener">Сайт Cursor</a>
+        </li>
+      </ul>
+      <p class="caption">Если зарубежный сайт не открывается — это нормальная ситуация. Начните с YandexGPT или GigaChat, а к зарубежным вернитесь позже.</p>
+    </section>
+
+    <section class="section section--ink" id="pay">
+      <div class="section__inner">
+        <div class="section__head">
+          <span class="kicker">08 · Оплата из РФ</span>
+          <h2>Как оплачивать Cursor и другие зарубежные сервисы через plati.ru</h2>
+          <p>Прямая оплата иностранной картой часто недоступна. Практичный обходной путь — купить цифровой ключ или подписку у продавца на plati.ru, а потом активировать её в самом сервисе.</p>
         </div>
 
-        <div class="rules">
-          <article class="rule">
-            <div class="rule-mark">1</div>
+        <div class="prose">
+          <p><strong>Что такое plati.ru.</strong> Это площадка цифровых товаров: ключи, подарочные карты, подписки. Вы платите привычным российским способом, получаете код или инструкцию в заказе и активируете покупку на официальном сайте сервиса.</p>
+          <p><strong>Что обычно покупают:</strong> Cursor Pro / Ultra, ChatGPT Plus, Claude, Midjourney, Adobe, Spotify, игровые и облачные подписки. Ассортимент меняется — всегда читайте название товара и описание продавца.</p>
+        </div>
+
+        <ol class="steps">
+          <li>
+            <div class="steps__num">01</div>
             <div>
-              <h3>Перепроверяйте важное</h3>
-              <p>Медицина, деньги, законы, даты — не верьте одному ответу. Сверяйте с надёжным источником.</p>
+              <h3>Откройте plati.ru и найдите нужный товар</h3>
+              <p>В поиске введите, например, <strong>Cursor Pro</strong>, <strong>ChatGPT Plus</strong> или <strong>Claude</strong>. Смотрите свежие позиции с понятным описанием: на какой срок, личный аккаунт или общий, что именно придёт после оплаты.</p>
             </div>
-          </article>
-          <article class="rule">
-            <div class="rule-mark">2</div>
+          </li>
+          <li>
+            <div class="steps__num">02</div>
             <div>
-              <h3>Не отдавайте секреты</h3>
-              <p>Паспорт, пароли, карты, коды из SMS — в чат с ИИ это не пишут.</p>
+              <h3>Проверьте продавца</h3>
+              <p>Смотрите рейтинг, число продаж и отзывы за последние дни. Лучше продавец с историей и большим числом успешных заказов, чем «самый дешёвый неизвестный». Если описание мутное — не берите.</p>
             </div>
-          </article>
-          <article class="rule">
-            <div class="rule-mark">3</div>
+          </li>
+          <li>
+            <div class="steps__num">03</div>
             <div>
-              <h3>Вы — начальник</h3>
-              <p>ИИ предлагает. Решение принимаете вы. Особенно если речь о людях и обязательствах.</p>
+              <h3>Прочитайте, что именно продают</h3>
+              <p>Варианты бывают разные: ключ активации, подарочная карта, оплата на ваш аккаунт, временный доступ. Для новичка безопаснее схема «ключ / код → активация на вашем аккаунте». Избегайте предложений «скажите нам логин и пароль» без крайней необходимости.</p>
             </div>
-          </article>
-          <article class="rule">
-            <div class="rule-mark">4</div>
+          </li>
+          <li>
+            <div class="steps__num">04</div>
             <div>
-              <h3>Начинайте с бесплатного</h3>
-              <p>Для знакомства платить не нужно. Сначала привыкните, потом решайте про подписки.</p>
+              <h3>Оплатите заказ привычным способом</h3>
+              <p>На plati.ru обычно доступны российские способы оплаты. После оплаты откройте заказ и дождитесь сообщения продавца: код, ссылка или пошаговая инструкция. Не закрывайте страницу заказа сразу.</p>
             </div>
-          </article>
+          </li>
+          <li>
+            <div class="steps__num">05</div>
+            <div>
+              <h3>Активируйте в официальном сервисе</h3>
+              <p>Для Cursor: скачайте программу с <a href="https://cursor.com/" target="_blank" rel="noopener">cursor.com</a>, войдите в свой аккаунт и примените ключ / завершите активацию по инструкции из заказа. Для ChatGPT, Claude и других — активируйте код уже в их личном кабинете, а не на стороннем сайте.</p>
+            </div>
+          </li>
+          <li>
+            <div class="steps__num">06</div>
+            <div>
+              <h3>Проверьте, что подписка появилась</h3>
+              <p>В Cursor откройте настройки аккаунта / Billing и убедитесь, что тариф обновился. Если код не подошёл — сразу пишите продавцу через заказ на plati.ru и сохраняйте скриншоты.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="note-box">
+          <h3>Важно про безопасность</h3>
+          <ul>
+            <li>Покупайте только цифровые товары с понятной активацией, не отдавайте банковские данные «в личку».</li>
+            <li>Не сообщайте пароль от почты и коды из SMS случайным людям.</li>
+            <li>Если просят войти в ваш аккаунт — используйте временный код / официальную схему продавца и после смените пароль, если чувствуете риск.</li>
+            <li>Сначала хватит бесплатного тарифа Cursor. Платите, когда уже поняли, что редактор вам реально нужен.</li>
+            <li>Цены и наличие на plati.ru меняются. Ориентируйтесь на свежие отзывы и актуальное описание лота.</li>
+          </ul>
+          <p style="margin-top: 0.9rem;">Площадка: <a href="https://plati.ru/" target="_blank" rel="noopener">plati.ru</a>. Это практический способ оплаты из РФ, а не «официальный магазин Cursor».</p>
+        </div>
+
+        <div class="hero__actions" style="margin-top: 1.75rem;">
+          <a class="btn btn--primary" href="https://plati.ru/" target="_blank" rel="noopener">Открыть plati.ru</a>
+          <a class="btn btn--light" href="https://cursor.com/" target="_blank" rel="noopener">Сайт Cursor</a>
         </div>
       </div>
     </section>
 
     <section class="section" id="cursor">
-      <div class="wrap reveal">
-        <div class="section-head">
-          <span class="kicker">07 · Следующий уровень</span>
-          <h2>Когда ChatGPT мало — появляется Cursor</h2>
-          <p>Cursor — редактор с ИИ внутри. Вы описываете задачу словами, а он помогает сделать сайт, таблицу, бота или разобрать чужой файл.</p>
-        </div>
-
-        <div class="path" aria-label="Путь новичка">
-          <article class="path-step">
-            <div class="path-dot">1</div>
-            <div>
-              <h3>Знакомство</h3>
-              <p>ChatGPT или YandexGPT в браузере. Привыкаете задавать вопросы и проверять ответы.</p>
-            </div>
-          </article>
-          <article class="path-step">
-            <div class="path-dot">2</div>
-            <div>
-              <h3>Бытовые задачи</h3>
-              <p>Письма, переводы, планы, объяснения документов. Чувствуете, где ИИ реально экономит время.</p>
-            </div>
-          </article>
-          <article class="path-step">
-            <div class="path-dot">3</div>
-            <div>
-              <h3>Желание сделать своё</h3>
-              <p>Хочется не только спросить, а собрать: страницу, таблицу учёта, простого бота.</p>
-            </div>
-          </article>
-          <article class="path-step">
-            <div class="path-dot">4</div>
-            <div>
-              <h3>Cursor AI</h3>
-              <p>Ставите программу с <a href="https://cursor.com" target="_blank" rel="noopener">cursor.com</a>, открываете папку и просите ИИ сделать шаг за шагом.</p>
-            </div>
-          </article>
-        </div>
-
-        <div class="prompts" style="margin-top: 2rem;">
-          <div class="prompt">
-            <span class="label">Пример в Cursor</span>
-            <p>«Сделай простую HTML-страницу с моим расписанием на неделю. Крупный шрифт, без сложных эффектов.»</p>
-          </div>
-        </div>
-
-        <p class="note">
-          Если позже понадобится платная подписка Cursor, из России её часто оплачивают через
-          <a href="https://plati.ru" target="_blank" rel="noopener">plati.ru</a>
-          (ключи активации) — практичный вариант, когда прямая оплата картой неудобна.
-          На старте бесплатного тарифа обычно хватает.
-        </p>
+      <div class="section__head">
+        <span class="kicker">09 · Cursor AI</span>
+        <h2>Когда ChatGPT мало — появляется Cursor</h2>
+        <p>Cursor — программа-редактор с ИИ внутри. Вы описываете задачу словами, а он помогает сделать сайт, таблицу, бота или разобрать чужой файл.</p>
       </div>
+      <ol class="timeline">
+        <li class="timeline__item" data-step="01">
+          <h3>Знакомство</h3>
+          <p>Сначала привыкните к YandexGPT, GigaChat или ChatGPT в браузере. Научитесь формулировать задачу.</p>
+        </li>
+        <li class="timeline__item" data-step="02">
+          <h3>Бытовые задачи</h3>
+          <p>Письма, переводы, планы, объяснения документов. Почувствуйте, где ИИ реально экономит время.</p>
+        </li>
+        <li class="timeline__item" data-step="03">
+          <h3>Желание сделать своё</h3>
+          <p>Хочется не только спросить, а собрать: страницу, список дел, простую таблицу учёта, бота.</p>
+        </li>
+        <li class="timeline__item" data-step="04">
+          <h3>Установка Cursor</h3>
+          <p>Скачайте с cursor.com, установите как обычную программу, откройте папку и попросите ИИ сделать один маленький шаг.</p>
+        </li>
+      </ol>
+      <ul class="prompt-list">
+        <li>
+          <span class="label">Пример в Cursor</span>
+          <p>«Сделай простую HTML-страницу с моим расписанием на неделю. Крупный шрифт, без сложных эффектов. Объясни, куда нажать, чтобы открыть результат.»</p>
+        </li>
+      </ul>
     </section>
 
     <section class="section" id="plan">
-      <div class="wrap reveal">
-        <div class="section-head">
-          <span class="kicker">08 · Маршрут</span>
-          <h2>Четыре недели без перегруза</h2>
-          <p>Не курс для программистов. Обычный темп для занятого взрослого.</p>
-        </div>
-
-        <div class="weeks">
-          <article class="week">
-            <div class="week-label">Неделя 1</div>
-            <div>
-              <h3>Просто поговорить</h3>
-              <p>Прочитайте этот сайт. Зарегистрируйтесь в ChatGPT или YandexGPT. Задайте 10 любых вопросов из жизни.</p>
-            </div>
-          </article>
-          <article class="week">
-            <div class="week-label">Неделя 2</div>
-            <div>
-              <h3>Полезные дела</h3>
-              <p>Письма, переводы, планы поездок, разбор непонятного текста. Сравнивайте: с ИИ и без.</p>
-            </div>
-          </article>
-          <article class="week">
-            <div class="week-label">Неделя 3</div>
-            <div>
-              <h3>Расширить кругозор</h3>
-              <p>Попробуйте генерацию картинок. Посмотрите 1–2 коротких ролика «нейросети простыми словами».</p>
-            </div>
-          </article>
-          <article class="week">
-            <div class="week-label">Неделя 4</div>
-            <div>
-              <h3>Попробовать Cursor</h3>
-              <p>Установите Cursor и сделайте одну крошечную вещь: страницу, список дел или таблицу. Не стремитесь к идеалу.</p>
-            </div>
-          </article>
-        </div>
+      <div class="section__head">
+        <span class="kicker">10 · Маршрут</span>
+        <h2>Четыре недели без перегруза</h2>
+        <p>Не курс для программистов. Обычный темп для занятого взрослого.</p>
       </div>
+      <ul class="week-list">
+        <li>
+          <strong>Неделя 1</strong>
+          <div>
+            <h3>Просто поговорить</h3>
+            <p>Прочитайте этот сайт. Зарегистрируйтесь в YandexGPT или GigaChat. Задайте 10 вопросов из жизни.</p>
+          </div>
+        </li>
+        <li>
+          <strong>Неделя 2</strong>
+          <div>
+            <h3>Полезные дела</h3>
+            <p>Письма, переводы, планы поездок, разбор непонятного текста. Сравнивайте: с ИИ и без.</p>
+          </div>
+        </li>
+        <li>
+          <strong>Неделя 3</strong>
+          <div>
+            <h3>Расширить кругозор</h3>
+            <p>Попробуйте Kandinsky или Shedevrum. Если удобно — зайдите в ChatGPT или DeepSeek. Посмотрите 1–2 коротких ролика «нейросети простыми словами».</p>
+          </div>
+        </li>
+        <li>
+          <strong>Неделя 4</strong>
+          <div>
+            <h3>Попробовать Cursor</h3>
+            <p>Установите Cursor и сделайте одну крошечную вещь. Платный тариф покупайте только если бесплатного уже мало.</p>
+          </div>
+        </li>
+      </ul>
     </section>
 
-    <section class="section" id="links">
-      <div class="wrap reveal">
-        <div class="section-head">
-          <span class="kicker">Старт</span>
-          <h2>Откройте одно из этого сегодня</h2>
-          <p>Одного сервиса достаточно, чтобы почувствовать пользу.</p>
-        </div>
-
-        <div class="start-links">
-          <a href="https://chat.openai.com" target="_blank" rel="noopener">ChatGPT <span>текстовый ИИ</span></a>
-          <a href="https://ya.ru/ai" target="_blank" rel="noopener">YandexGPT <span>удобно из РФ</span></a>
-          <a href="https://fusionbrain.ai" target="_blank" rel="noopener">Kandinsky <span>картинки</span></a>
-          <a href="https://cursor.com" target="_blank" rel="noopener">Cursor <span>когда захотите создавать</span></a>
-        </div>
+    <section class="section" id="faq">
+      <div class="section__head">
+        <span class="kicker">11 · Частые вопросы</span>
+        <h2>Коротко о том, что обычно спрашивают</h2>
+        <p>Если остался страх «я слишком поздний для этого» — нет. Для старта достаточно браузера и любопытства.</p>
       </div>
+      <ul class="faq-list">
+        <li>
+          <h3>Нужно ли уметь программировать?</h3>
+          <p>Нет. Для первых трёх недель хватает обычного чата в браузере. Cursor пригодится позже, если захотите создавать свои штуки.</p>
+        </li>
+        <li>
+          <h3>ИИ заменит людей?</h3>
+          <p>Он заменяет отдельные рутинные действия: черновик письма, поиск формулировки, первичное объяснение. Решения, ответственность и вкус остаются за человеком.</p>
+        </li>
+        <li>
+          <h3>Почему иногда врёт?</h3>
+          <p>Потому что предсказывает правдоподобный текст, а не всегда проверяет факты. Важное перепроверяйте.</p>
+        </li>
+        <li>
+          <h3>Что делать, если зарубежный сайт не открывается?</h3>
+          <p>Начните с российских сервисов из раздела «Рабочие сервисы». К зарубежным можно вернуться позже, когда появится удобный способ доступа.</p>
+        </li>
+        <li>
+          <h3>Обязательно ли сразу платить за Cursor?</h3>
+          <p>Нет. Сначала поставьте и попробуйте бесплатно. Если упрётесь в лимиты — тогда смотрите оплату через plati.ru.</p>
+        </li>
+      </ul>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <p>
-        <strong>IntroAI</strong> — спокойное введение для тех, кто вырос без смартфонов и нейросетей.
-        ИИ — новый инструмент, как когда-то калькулятор или интернет. Можно освоить постепенно.
-      </p>
+  <footer class="footer">
+    <div class="footer__inner">
+      <a class="brand--footer" href="#top">Intro<span>AI</span></a>
+      <p>Спокойное введение для тех, кто вырос без смартфонов и нейросетей. ИИ — новый инструмент, как когда-то калькулятор или интернет.</p>
     </div>
   </footer>
 

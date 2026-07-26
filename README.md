@@ -4,4 +4,6 @@
 
 **Сайт:** [https://puholet-sketch.github.io/IntroAI/](https://puholet-sketch.github.io/IntroAI/)
 
-На сайте — спокойный гид: что такое ИИ, как учатся нейросети, с чего начать на практике, правила безопасности, путь к Cursor AI и план на 4 недели.
+Стиль как у [ОУД4](https://puholet-sketch.github.io/oud4-consulting/): Unbounded + Onest, crimson, timeline, тёмный блок с ключевым действием.
+
+На сайте: основы ИИ и нейросетей, практика, рабочие сервисы из РФ, путь к Cursor и пошаговая оплата зарубежных подписок через plati.ru.

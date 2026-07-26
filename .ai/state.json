@@ -1,6 +1,6 @@
 {
-  "context_version": 5,
-  "timestamp": "2026-07-21T12:30:00+03:00",
+  "context_version": 6,
+  "timestamp": "2026-07-26T21:10:00+03:00",
   "context_hash": null,
   "active_files": [
     "index.html",
@@ -10,11 +10,12 @@
   ],
   "active_file_hashes": {},
   "decisions": [
-    "Полный redesign в editorial learning style вместо card/purple landing.",
-    "Контент упрощён и выстроен как progressive disclosure для взрослого новичка."
+    "Визуал IntroAI выровнен с oud4-consulting (Unbounded/Onest, crimson, timeline, ink section).",
+    "Добавлены рабочие сервисы из РФ и развёрнутая инструкция оплаты через plati.ru.",
+    "Глобальное правило educational-sites-style обновлено под систему ОУД4."
   ],
   "blockers": [],
   "last_error": null,
   "retry_count": 0,
-  "next_action": "Дождаться деплоя Pages и собрать отзыв."
+  "next_action": "Проверить деплой GitHub Pages после push."
 }

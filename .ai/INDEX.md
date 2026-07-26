@@ -1,8 +1,8 @@
-.ai/CONTEXT.md - краткий актуальный контекст
+.ai/CONTEXT.md - краткий контекст
 .ai/INDEX.md - карта артефактов
 .ai/state.json - машинное состояние
 
-index.html - публичный сайт (GitHub Pages)
-assets/css/style.css - оформление
-assets/js/main.js - TOC, scroll reveal, smooth scroll
-README.md - короткая витрина репозитория со ссылкой на сайт
+index.html - публичный сайт
+assets/css/style.css - стили ОУД4-системы
+assets/js/main.js - nav + timeline reveal
+README.md - витрина репозитория
